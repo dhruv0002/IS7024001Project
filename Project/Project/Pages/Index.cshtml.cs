@@ -54,6 +54,30 @@ namespace Project.Pages
                 Query = countryDictionary[query];
             }
 
+            if (!string.IsNullOrWhiteSpace(query))
+            {
+                using (var webClient = new WebClient())
+                {
+                    string jsonString = webClient.DownloadString($"https://api.nobelprize.org/v1/laureate.json?bornCountryCode={query}");
+
+                    NobelLaureates = NobelLaureates.FromJson(jsonString);
+
+                }
+
+                if (NobelLaureates != null && NobelLaureates.Laureates.Any())
+                {
+                    SearchCompleted = true;
+                }
+                else
+                {
+                    SearchCompleted = false;
+                }
+            }
+            else
+            {
+                SearchCompleted = false;
+            }
+
             return Page();
         }
     }
