@@ -49,11 +49,10 @@ prizes-motivation:  work on the scattering of light and for the discovery of the
 *Then* We should receive first question of quiz with four options like: 
 
 Which of the following fields was not included in the Nobel Prize category at the time the Nobel Prizes were first established?
- 
-Medicine
-Economics
-Physics
-Literature  
+1. Medicine
+2. Economics
+3. Physics
+4. Literature  
 
 2.2 
 *Given* The game has concluded 
@@ -63,11 +62,10 @@ Literature
 *Then* We should receive first question of quiz with four options like:
 
 When does the formal Nobel Prize ceremony take place every year?
- 
-10 December
-10 October
-10 January
-10 November
+1. 10 December
+2. 10 October
+3. 10 January
+4. 10 November
 
 2.3 
 *Given* The game is running 
