@@ -1,0 +1,110 @@
+﻿@page
+@model Project.Pages.DetailsModel
+@{
+}
+
+<h1>Prize Details for @Html.DisplayFor(model => model.NobelLaureates.Laureates[0].Firstname) @Html.DisplayFor(model => model.NobelLaureates.Laureates[0].Surname)</h1>
+
+
+<hr />
+
+@if (Model.SearchCompleted)
+{
+    <h3>Prizes</h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.NobelLaureates.Laureates[0].Prizes[0].Year)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.NobelLaureates.Laureates[0].Prizes[0].Category)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.NobelLaureates.Laureates[0].Prizes[0].Share)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.NobelLaureates.Laureates[0].Prizes[0].Motivation)
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.NobelLaureates.Laureates[0].Prizes)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Year)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Category)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Share)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Motivation)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <hr />
+
+    <h3>Affiliations</h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.NobelLaureates.Laureates[0].Prizes[0].Year)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.NobelLaureates.Laureates[0].Prizes[0].Category)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.NobelLaureates.Laureates[0].Prizes[0].Affiliations[0].AffiliationClass.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.NobelLaureates.Laureates[0].Prizes[0].Affiliations[0].AffiliationClass.City)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.NobelLaureates.Laureates[0].Prizes[0].Affiliations[0].AffiliationClass.Country)
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var prize in Model.NobelLaureates.Laureates[0].Prizes)
+            {
+                @foreach (var affiliation in prize.Affiliations)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => prize.Year)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => prize.Category)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => affiliation.AffiliationClass.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => affiliation.AffiliationClass.City)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => affiliation.AffiliationClass.Country)
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <div class="row">
+        <div class="col">
+            <div class="alert alert-info">
+                No prize for the particular laureate
+            </div>
+        </div>
+    </div>
+}
