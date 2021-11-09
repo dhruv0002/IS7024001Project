@@ -21,3 +21,47 @@
         </form>
     </div>
 </div>
+
+@if (Model.SearchCompleted)
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.NobelLaureates.Laureates[0].Firstname)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.NobelLaureates.Laureates[0].Surname)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.NobelLaureates.Laureates[0].Born)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.NobelLaureates.Laureates[0].Died)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.NobelLaureates.Laureates[0].BornCountry)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.NobelLaureates.Laureates[0].BornCountryCode)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.NobelLaureates.Laureates[0].BornCity)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.NobelLaureates.Laureates[0].DiedCountry)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.NobelLaureates.Laureates[0].DiedCountryCode)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.NobelLaureates.Laureates[0].DiedCity)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.NobelLaureates.Laureates[0].Gender)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+    </table>
+}
