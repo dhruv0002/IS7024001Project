@@ -44,6 +44,16 @@ namespace Project.Pages
 
             ViewData["Code"] = selectListItems;
 
+            if (!string.IsNullOrWhiteSpace(query))
+            {
+                if (countryDictionary == null || !countryDictionary.Any())
+                {
+                    countryDictionary = selectListItems.ToDictionary(x => x.Value, x => x.Text);
+                }
+
+                Query = countryDictionary[query];
+            }
+
             return Page();
         }
     }
