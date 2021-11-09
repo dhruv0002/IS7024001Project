@@ -41,35 +41,35 @@ prizes-motivation:  work on the scattering of light and for the discovery of the
 -	As a user I am able to play a quiz on Nobel Prizes.
 
 ### Examples
-1.1  
+2.1  
 *Given* a navigation to quiz section 
 
 *When* I and my friend enter our name and group name, then click on join button
 
 *Then* We should receive first question of quiz with four options like: 
 
-1. Which of the following fields was not included in the Nobel Prize category at the time the Nobel Prizes were first established?
+Which of the following fields was not included in the Nobel Prize category at the time the Nobel Prizes were first established?
  
 Medicine
 Economics
 Physics
 Literature  
 
-1.2 
+2.2 
 *Given* The game has concluded 
 
 *When* I and my friend click on play again button
 
 *Then* We should receive first question of quiz with four options like:
 
-2. When does the formal Nobel Prize ceremony take place every year?
+When does the formal Nobel Prize ceremony take place every year?
  
 10 December
 10 October
 10 January
 10 November
 
-1.3 
+2.3 
 *Given* The game is running 
 
 *When* I click on leave button
@@ -77,28 +77,28 @@ Literature
 *Then* I will leave the room and my friend will win
 
 
-1.4 
+2.4 
 *Given* The game is running 
 
 *When* I get disconnected
 
 *Then* I will leave the room and my friend will win
 
-1.5 
+2.5 
 *Given* The game is running 
 
 *When* I submit my answer to the quiz question
 
 *Then* If I answered the quiz question correctly then I will get score of +1
 
-1.6 
+2.6 
 *Given* I am already in the room 
 
 *When* I try to join the room again
 
 *Then* I will receive a message that I am already in the room
 
-1.7 
+2.7 
 *Given* I have left  the room 
 
 *When* I try to leave the room again
