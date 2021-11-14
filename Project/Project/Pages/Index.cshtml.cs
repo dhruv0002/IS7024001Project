@@ -33,6 +33,8 @@ namespace Project.Pages
         {
             if(selectListItems == null || !selectListItems.Any())
             {
+                //I have no idea what to change
+                //The code is very delicated
                 CreateSelectList();
             }
 
@@ -40,23 +42,12 @@ namespace Project.Pages
 
             if (!string.IsNullOrWhiteSpace(query))
             {
-                if (countryDictionary == null || !countryDictionary.Any())
-                {
-                    countryDictionary = selectListItems.ToDictionary(x => x.Value, x => x.Text);
-                }
-
-                Query = countryDictionary[query];
+                CountryDictionary(query);
             }
 
             if (!string.IsNullOrWhiteSpace(query))
             {
-                using (var webClient = new WebClient())
-                {
-                    string jsonString = webClient.DownloadString($"https://api.nobelprize.org/v1/laureate.json?bornCountryCode={query}");
-
-                    NobelLaureates = NobelLaureates.FromJson(jsonString);
-
-                }
+                CreateNobelLaureatesList(query);
 
                 if (NobelLaureates != null && NobelLaureates.Laureates.Any())
                 {
@@ -73,6 +64,27 @@ namespace Project.Pages
             }
 
             return Page();
+        }
+
+        private void CreateNobelLaureatesList(string query)
+        {
+            using (var webClient = new WebClient())
+            {
+                string jsonString = webClient.DownloadString($"https://api.nobelprize.org/v1/laureate.json?bornCountryCode={query}");
+
+                NobelLaureates = NobelLaureates.FromJson(jsonString);
+
+            }
+        }
+
+        private void CountryDictionary(string query)
+        {
+            if (countryDictionary == null || !countryDictionary.Any())
+            {
+                countryDictionary = selectListItems.ToDictionary(x => x.Value, x => x.Text);
+            }
+
+            Query = countryDictionary[query];
         }
 
         private static void CreateSelectList()
