@@ -26,9 +26,9 @@ namespace Project.Pages
             {
                 using (var webClient = new WebClient())
                 {
-                    string jsonString = webClient.DownloadString($"https://api.nobelprize.org/v1/laureate.json?id={id}");
+                    string nobelString = webClient.DownloadString($"https://api.nobelprize.org/v1/laureate.json?id={id}");
 
-                    NobelLaureates = NobelLaureates.FromJson(jsonString);
+                    NobelLaureates = NobelLaureates.FromJson(nobelString);
 
                 }
 

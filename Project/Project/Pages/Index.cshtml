@@ -66,6 +66,8 @@
         <tbody>
             @foreach (var item in Model.NobelLaureates.Laureates)
             {
+                
+               
                 <tr>
                     <td>
                         @Html.DisplayFor(modelItem => item.Firstname)
@@ -89,7 +91,9 @@
                         @Html.DisplayFor(modelItem => item.BornCity)
                     </td>
                     <td>
+                      
                         @Html.DisplayFor(modelItem => item.DiedCountry)
+                        
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.DiedCountryCode)
