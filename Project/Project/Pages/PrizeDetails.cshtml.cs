@@ -14,8 +14,8 @@ namespace Project.Pages
         public bool SearchCompleted { get; set; }
         public NobelLaureates NobelLaureates { get; set; }
 
-        public IActionResult onGet()
-        {
+        //public IActionResult onGet()
+        //{
 
         //    using (var webClient = new WebClient())
         //    {
