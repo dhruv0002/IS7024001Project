@@ -35,9 +35,24 @@ namespace Project.Pages
             {
                 using (var webClient = new WebClient())
                 {
-                    string jsonString = webClient.DownloadString("https://pkgstore.datahub.io/core/country-list/data_json/data/8c458f2d15d9f2119654b29ede6e45b8/data_json.json");
+                    
+                    string countryString = webClient.DownloadString("https://pkgstore.datahub.io/core/country-list/data_json/data/8c458f2d15d9f2119654b29ede6e45b8/data_json.json");
+                    string result = "";
 
-                    selectListItems = new SelectList(Country.FromJson(jsonString), "Code", "Name");
+                    
+
+                    try
+                    {
+                        result = webClient.DownloadString(countryString);
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine("Exception while calling API", e);
+
+
+
+                    }
+                    selectListItems = new SelectList(Country.FromJson(countryString), "Code", "Name");
                     
                 }
             } 

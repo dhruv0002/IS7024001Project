@@ -51,16 +51,20 @@ namespace QuickTypeNobelLaureates
         [DisplayName("Born City")]
         [JsonProperty("bornCity")]
         public string BornCity { get; set; }
-
+        /*added comments*/
+        
         [DisplayName("Died Country")]
+        
         [JsonProperty("diedCountry", NullValueHandling = NullValueHandling.Ignore)]
         public string DiedCountry { get; set; }
 
         [DisplayName("Died Country Code")]
+        
         [JsonProperty("diedCountryCode", NullValueHandling = NullValueHandling.Ignore)]
         public string DiedCountryCode { get; set; }
 
         [DisplayName("Died City")]
+        
         [JsonProperty("diedCity", NullValueHandling = NullValueHandling.Ignore)]
         public string DiedCity { get; set; }
 
