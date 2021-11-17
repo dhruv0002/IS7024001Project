@@ -33,36 +33,21 @@ namespace Project.Pages
         {
             if(selectListItems == null || !selectListItems.Any())
             {
-                using (var webClient = new WebClient())
-                {
-                    string jsonString = webClient.DownloadString("https://pkgstore.datahub.io/core/country-list/data_json/data/8c458f2d15d9f2119654b29ede6e45b8/data_json.json");
-
-                    selectListItems = new SelectList(Country.FromJson(jsonString), "Code", "Name");
-                    
-                }
-            } 
+                //I have no idea what to change
+                //The code is very delicated
+                CreateSelectList();
+            }
 
             ViewData["Code"] = selectListItems;
 
             if (!string.IsNullOrWhiteSpace(query))
             {
-                if (countryDictionary == null || !countryDictionary.Any())
-                {
-                    countryDictionary = selectListItems.ToDictionary(x => x.Value, x => x.Text);
-                }
-
-                Query = countryDictionary[query];
+                CountryDictionary(query);
             }
 
             if (!string.IsNullOrWhiteSpace(query))
             {
-                using (var webClient = new WebClient())
-                {
-                    string jsonString = webClient.DownloadString($"https://api.nobelprize.org/v1/laureate.json?bornCountryCode={query}");
-
-                    NobelLaureates = NobelLaureates.FromJson(jsonString);
-
-                }
+                CreateNobelLaureatesList(query);
 
                 if (NobelLaureates != null && NobelLaureates.Laureates.Any())
                 {
@@ -79,6 +64,38 @@ namespace Project.Pages
             }
 
             return Page();
+        }
+
+        private void CreateNobelLaureatesList(string query)
+        {
+            using (var webClient = new WebClient())
+            {
+                string jsonString = webClient.DownloadString($"https://api.nobelprize.org/v1/laureate.json?bornCountryCode={query}");
+
+                NobelLaureates = NobelLaureates.FromJson(jsonString);
+
+            }
+        }
+
+        private void CountryDictionary(string query)
+        {
+            if (countryDictionary == null || !countryDictionary.Any())
+            {
+                countryDictionary = selectListItems.ToDictionary(x => x.Value, x => x.Text);
+            }
+
+            Query = countryDictionary[query];
+        }
+
+        private static void CreateSelectList()
+        {
+            using (var webClient = new WebClient())
+            {
+                string jsonString = webClient.DownloadString("https://pkgstore.datahub.io/core/country-list/data_json/data/8c458f2d15d9f2119654b29ede6e45b8/data_json.json");
+
+                selectListItems = new SelectList(Country.FromJson(jsonString), "Code", "Name");
+
+            }
         }
     }
 }

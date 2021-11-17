@@ -1,12 +1,35 @@
 ﻿@page
 @model Project.Pages.DetailsModel
 @{
+    var Year = ViewData["Year"];
+    var Category = ViewData["Category"];
+    var Share = ViewData["Share"];
+    var Motivation = ViewData["Motivation"];
 }
-
 <h1>Prize Details for @Html.DisplayFor(model => model.NobelLaureates.Laureates[0].Firstname) @Html.DisplayFor(model => model.NobelLaureates.Laureates[0].Surname)</h1>
 
 
 <hr />
+
+<h3>Prizes Display</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Year</th>
+            <th scope="col">Category</th>
+            <th scope="col">Share</th>
+            <th scope="col">Motivation</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>@Year</td>
+            <td>@Category</td>
+            <td>@Share</td>
+            <td>@Motivation</td>
+        </tr>
+    </tbody>
+</table>
 
 @if (Model.SearchCompleted)
 {
