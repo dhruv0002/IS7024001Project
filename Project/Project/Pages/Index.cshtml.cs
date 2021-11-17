@@ -50,7 +50,6 @@ namespace Project.Pages
                 {
                     CountryDictionary = selectListItems.ToDictionary(x => x.Value, x => x.Text);
                 }
-
                 Query = CountryDictionary[query];
             }
 
