@@ -22,43 +22,46 @@ namespace Project.Pages
         }
 
         public bool SearchCompleted { get; set; }
-        public string Query { get; set; }
+        public string CountryQuery { get; set; } 
         public NobelLaureates NobelLaureates { get; set; }
 
-        public static SelectList selectListItems;
+        public static SelectList SelectListItems; 
 
-        public static Dictionary<string, string> countryDictionary;
-
-        public IActionResult OnGet(string query)
+        public static Dictionary<string, string> CountryDictionary; 
+        public IActionResult OnGet(string countryQuery)
         {
-            if(selectListItems == null || !selectListItems.Any())
+            
+            if(SelectListItems == null || !SelectListItems.Any())
             {
+               
                 using (var webClient = new WebClient())
                 {
                     string jsonString = webClient.DownloadString("https://pkgstore.datahub.io/core/country-list/data_json/data/8c458f2d15d9f2119654b29ede6e45b8/data_json.json");
 
-                    selectListItems = new SelectList(Country.FromJson(jsonString), "Code", "Name");
+                    SelectListItems = new SelectList(Country.FromJson(jsonString), "Code", "Name");
                     
                 }
             } 
 
-            ViewData["Code"] = selectListItems;
+            ViewData["Code"] = SelectListItems;
 
-            if (!string.IsNullOrWhiteSpace(query))
+            if (!string.IsNullOrWhiteSpace(countryQuery))
             {
-                if (countryDictionary == null || !countryDictionary.Any())
+                if (CountryDictionary == null || !CountryDictionary.Any())
                 {
-                    countryDictionary = selectListItems.ToDictionary(x => x.Value, x => x.Text);
+                    CountryDictionary = SelectListItems.ToDictionary(x => x.Value, x => x.Text);
                 }
 
-                Query = countryDictionary[query];
+                CountryQuery = CountryDictionary[countryQuery];
             }
 
-            if (!string.IsNullOrWhiteSpace(query))
+            SearchCompleted = false;
+
+            if (!string.IsNullOrWhiteSpace(countryQuery))
             {
                 using (var webClient = new WebClient())
                 {
-                    string jsonString = webClient.DownloadString($"https://api.nobelprize.org/v1/laureate.json?bornCountryCode={query}");
+                    string jsonString = webClient.DownloadString($"https://api.nobelprize.org/v1/laureate.json?bornCountryCode={countryQuery}");
 
                     NobelLaureates = NobelLaureates.FromJson(jsonString);
 
@@ -68,16 +71,9 @@ namespace Project.Pages
                 {
                     SearchCompleted = true;
                 }
-                else
-                {
-                    SearchCompleted = false;
-                }
+               
             }
-            else
-            {
-                SearchCompleted = false;
-            }
-
+        
             return Page();
         }
     }
