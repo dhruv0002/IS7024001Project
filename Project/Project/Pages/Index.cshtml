@@ -4,15 +4,32 @@
     ViewData["Title"] = "Home page";
 }
 
-<h1>Know Your Favorite Nobel Laureate</h1>
+<style>
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    td, th {
+
+        text-align: left;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color:lightgrey;
+    }
+</style>
+<h1> Know Your Favorite Nobel Laureate</h1>
 
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form method="get">
             <div class="form-group">
-                <label class="control-label"></label>
-                <select asp-for="Query" class="form-control" asp-items="ViewBag.Code"></select>
+                <label class="control-label"> </label>
+                <select asp-for="Query" class="form-control" asp-items="ViewBag.Code"> </select>
             </div>
 
             <div class="form-group">
@@ -21,11 +38,12 @@
         </form>
     </div>
 </div>
-
 @if (Model.SearchCompleted)
 {
-    <table class="table">
-        <thead>
+    <table class="table" style="width:120%">
+        <! --- Width has been corrected - -->
+        <thead class="thead-dark">
+            <! --- table header has colored for better understanding - -->
             <tr>
                 <th>
                     @Html.DisplayNameFor(model => model.NobelLaureates.Laureates[0].Firstname)
@@ -33,10 +51,12 @@
                 <th>
                     @Html.DisplayNameFor(model => model.NobelLaureates.Laureates[0].Surname)
                 </th>
-                <th>
+                <th width="9%">
+                    <! --- Width has been corrected - -->
                     @Html.DisplayNameFor(model => model.NobelLaureates.Laureates[0].Born)
                 </th>
-                <th>
+                <th width="9%">
+                    <! --- Width has been corrected - -->
                     @Html.DisplayNameFor(model => model.NobelLaureates.Laureates[0].Died)
                 </th>
                 <th>
@@ -60,7 +80,7 @@
                 <th>
                     @Html.DisplayNameFor(model => model.NobelLaureates.Laureates[0].Gender)
                 </th>
-                <th></th>
+                <th> </th>
             </tr>
         </thead>
         <tbody>
@@ -101,7 +121,7 @@
                         @Html.DisplayFor(modelItem => item.Gender)
                     </td>
                     <td>
-                        <a asp-page="./PrizeDetails" asp-route-id="@item.Id">Prizes</a>
+                        <a asp-page="./PrizeDetails" asp-route-id="@item.Id"> Prizes</a>
                     </td>
                 </tr>
             }
@@ -113,7 +133,7 @@ else if (Model.Query != null && Model.Query.Length > 0)
     <div class="row">
         <div class="col">
             <div class="alert alert-info">
-                No results match your term <strong>@Model.Query</strong>
+                No results match your term <strong>@Model.Query </strong>
             </div>
         </div>
     </div>
