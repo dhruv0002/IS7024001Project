@@ -27,7 +27,7 @@ namespace Project.Pages
 
         public static SelectList selectListItems;
 
-        public static Dictionary<string, string> countryDictionary;
+        public static Dictionary<string, string> CountryDictionary;
 
         public IActionResult OnGet(string query)
         {
@@ -46,12 +46,12 @@ namespace Project.Pages
 
             if (!string.IsNullOrWhiteSpace(query))
             {
-                if (countryDictionary == null || !countryDictionary.Any())
+                if (CountryDictionary == null || !CountryDictionary.Any())
                 {
-                    countryDictionary = selectListItems.ToDictionary(x => x.Value, x => x.Text);
+                    CountryDictionary = selectListItems.ToDictionary(x => x.Value, x => x.Text);
                 }
 
-                Query = countryDictionary[query];
+                Query = CountryDictionary[query];
             }
 
             if (!string.IsNullOrWhiteSpace(query))
