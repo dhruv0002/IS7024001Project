@@ -74,7 +74,8 @@
         </thead>
         <tbody>
             @foreach (var prize in Model.NobelLaureates.Laureates[0].Prizes)
-            @if(prize != null && Model.NobelLaureates.Laureates[0].Prizes != null)
+            {
+            @if (prize != null && Model.NobelLaureates.Laureates[0].Prizes != null)
             {
                 @foreach (var affiliation in prize.Affiliations)
                 {
@@ -96,6 +97,7 @@
                         </td>
                     </tr>
                 }
+            }
             }
         </tbody>
     </table>
