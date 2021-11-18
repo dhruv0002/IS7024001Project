@@ -17,7 +17,7 @@ namespace Project.Pages
         public IActionResult OnGet(int? id)
         {
             SearchCompleted = true;
-
+            /* Searching if there are any existing prizes won by Nobel Laureates */
             if (id == null)
             {
                 SearchCompleted = false;

@@ -16,7 +16,7 @@
             </div>
 
             <div class="form-group">
-                <input type="submit" value="Search" class="btn btn-primary" />
+                <input type="submit" value="Search" class="btn btn-primary"/>
             </div>
         </form>
     </div>
@@ -42,18 +42,18 @@
                 <th>
                     @Html.DisplayNameFor(model => model.NobelLaureates.Laureates[0].BornCountry)
                 </th>
-                <th>
+                <!-- <th>
                     @Html.DisplayNameFor(model => model.NobelLaureates.Laureates[0].BornCountryCode)
-                </th>
+                </th> -->
                 <th>
                     @Html.DisplayNameFor(model => model.NobelLaureates.Laureates[0].BornCity)
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.NobelLaureates.Laureates[0].DiedCountry)
                 </th>
-                <th>
+                <!-- <th>
                     @Html.DisplayNameFor(model => model.NobelLaureates.Laureates[0].DiedCountryCode)
-                </th>
+                </th> -->
                 <th>
                     @Html.DisplayNameFor(model => model.NobelLaureates.Laureates[0].DiedCity)
                 </th>
@@ -66,44 +66,44 @@
         <tbody>
             @foreach (var item in Model.NobelLaureates.Laureates)
             {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Firstname)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Surname)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Born)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Died)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.BornCountry)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.BornCountryCode)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.BornCity)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.DiedCountry)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.DiedCountryCode)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.DiedCity)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Gender)
-                    </td>
-                    <td>
-                        <a asp-page="./PrizeDetails" asp-route-id="@item.Id">Prizes</a>
-                    </td>
-                </tr>
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Firstname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Surname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Born)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Died)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BornCountry)
+                </td>
+                <!-- <td>
+                    @Html.DisplayFor(modelItem => item.BornCountryCode)
+                </td> -->
+                <td>
+                    @Html.DisplayFor(modelItem => item.BornCity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DiedCountry)
+                </td>
+                <!--<td>
+                    @Html.DisplayFor(modelItem => item.DiedCountryCode)
+                </td> -->
+                <td>
+                    @Html.DisplayFor(modelItem => item.DiedCity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Gender)
+                </td>
+                <td>
+                    <a asp-page="./PrizeDetails" asp-route-id="@item.Id">Prizes</a>
+                </td>
+            </tr>
             }
         </tbody>
     </table>
@@ -113,7 +113,7 @@ else if (Model.Query != null && Model.Query.Length > 0)
     <div class="row">
         <div class="col">
             <div class="alert alert-info">
-                No results match your term <strong>@Model.Query</strong>
+                There are no Nobel Laureates in  <strong>@Model.Query</strong>
             </div>
         </div>
     </div>

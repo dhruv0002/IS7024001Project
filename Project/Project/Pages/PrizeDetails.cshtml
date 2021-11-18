@@ -8,6 +8,7 @@
 
 <hr />
 
+<!--Displaying the details of all prizes won by the Nobel Laureates of respective countries -->
 @if (Model.SearchCompleted)
 {
     <h3>Prizes</h3>
@@ -74,7 +75,9 @@
         <tbody>
             @foreach (var prize in Model.NobelLaureates.Laureates[0].Prizes)
             {
-                @foreach (var affiliation in prize.Affiliations)
+            @if (prize != null && Model.NobelLaureates.Laureates[0].Prizes != null)
+            {
+                @foreach (var affiliation in prize.Affiliations
                 {
                     <tr>
                         <td>
@@ -94,6 +97,7 @@
                         </td>
                     </tr>
                 }
+            }
             }
         </tbody>
     </table>
