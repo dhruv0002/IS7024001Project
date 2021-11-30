@@ -1,0 +1,94 @@
+﻿@page
+@model Project.Pages.QuizPageModel
+@{
+    ViewData["Title"] = "Quiz Page";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-2">Name</div>
+        <div class="col-4"><input type="text" id="userInput" /></div>
+    </div>
+
+    <div class="row">&nbsp;</div>
+    <div class="row">
+        <div class="col-2">Group name</div>
+        <div class="col-4"><input type="text" id="groupNameInput" /></div>
+    </div>
+
+    <div class="row">&nbsp;</div>
+    <div class="row">
+        <div class="col-2">
+            <input type="button" id="joinButton" value="Join Group" />
+        </div>
+        <div class="col-2">
+            <input type="button" id="leaveButton" value="Leave Group" />
+        </div>
+    </div>
+
+    <div class="row">&nbsp;</div>
+    <div class="row">
+        <div class="col-2">Score</div>
+        <div class="col-4" id="score"></div>
+    </div>
+
+    <div class="row">&nbsp;</div>
+    <div class="row">
+        <div class="col-2">Result:</div>
+        <div class="col-4" id="result"></div>
+    </div>
+
+    <div class="row">&nbsp;</div>
+    <div class="row">
+        <div class="col-2">Time:</div>
+        <div class="col-4" id="question_time"></div>
+    </div>
+
+    <div class="row">&nbsp;</div>
+    <div class="row">
+        <div class="col-6" id="question"></div>
+    </div>
+
+    <div class="row">&nbsp;</div>
+    <div class="form-check">
+        <input class="form-check-input" type="radio" name="options" id="option1" checked>
+        <label class="form-check-label" for="option1" id="option1Text">
+
+        </label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="radio" name="options" id="option2">
+        <label class="form-check-label" for="option2" id="option2Text">
+
+        </label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="radio" name="options" id="option3">
+        <label class="form-check-label" for="option3" id="option3Text">
+
+        </label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="radio" name="options" id="option4">
+        <label class="form-check-label" for="option4" id="option4Text">
+
+        </label>
+    </div>
+    <div class="row">&nbsp;</div>
+    <div class="row">
+        <div class="col-2">
+            <input type="button" id="submitAnswer" value="Submit Answer" />
+        </div>
+        <div class="col-2">
+            <input type="button" id="playAgain" value="Play Again" />
+        </div>
+    </div>
+
+    <div class="row">&nbsp;</div>
+    <div class="row">
+        <div class="alert-primary col-12" role="alert" id="adminMessage"></div>
+    </div>
+</div>
+    
+<script src="~/js/signalr/dist/browser/signalr.js"></script>
+<script src="~/js/quiz.js"></script>

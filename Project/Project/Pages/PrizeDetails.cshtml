@@ -1,10 +1,11 @@
 ﻿@page
 @model Project.Pages.DetailsModel
 @{
+    ViewData["Title"] = "Prize Details Page";
 }
 
-<h1>Prize Details for @Html.DisplayFor(model => model.NobelLaureates.Laureates[0].Firstname) @Html.DisplayFor(model => model.NobelLaureates.Laureates[0].Surname)</h1>
 
+<h1>Prize Details for @Html.DisplayFor(model => model.NobelLaureates.Laureates[0].Firstname) @Html.DisplayFor(model => model.NobelLaureates.Laureates[0].Surname)</h1>
 
 <hr />
 

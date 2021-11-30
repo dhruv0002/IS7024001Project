@@ -1,0 +1,151 @@
+{
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "$ref": "#/definitions/NobelLaureates",
+  "definitions": {
+    "NobelLaureates": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "laureates": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Laureate"
+          }
+        }
+      },
+      "required": [
+        "laureates"
+      ],
+      "title": "NobelLaureates"
+    },
+    "Laureate": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "integer"
+        },
+        "firstname": {
+          "type": "string"
+        },
+        "surname": {
+          "type": "string"
+        },
+        "born": {
+          "type": "string"
+        },
+        "died": {
+          "type": "string"
+        },
+        "bornCountry": {
+          "type": "string"
+        },
+        "bornCountryCode": {
+          "type": "string"
+        },
+        "bornCity": {
+          "type": "string"
+        },
+        "diedCountry": {
+          "type": "string"
+        },
+        "diedCountryCode": {
+          "type": "string"
+        },
+        "diedCity": {
+          "type": "string"
+        },
+        "gender": {
+          "type": "string"
+        },
+        "prizes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Prize"
+          }
+        }
+      },
+      "required": [
+        "born",
+        "bornCity",
+        "bornCountry",
+        "bornCountryCode",
+        "died",
+        "firstname",
+        "gender",
+        "id",
+        "prizes",
+        "surname"
+      ],
+      "title": "Laureate"
+    },
+    "Prize": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "year": {
+          "type": "string",
+          "format": "integer"
+        },
+        "category": {
+          "type": "string"
+        },
+        "share": {
+          "type": "string",
+          "format": "integer"
+        },
+        "motivation": {
+          "type": "string"
+        },
+        "affiliations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/AffiliationElement"
+          }
+        }
+      },
+      "required": [
+        "affiliations",
+        "category",
+        "motivation",
+        "share",
+        "year"
+      ],
+      "title": "Prize"
+    },
+    "AffiliationClass": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "city": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "city",
+        "country",
+        "name"
+      ],
+      "title": "AffiliationClass"
+    },
+    "AffiliationElement": {
+      "anyOf": [
+        {
+          "type": "array",
+          "items": {}
+        },
+        {
+          "$ref": "#/definitions/AffiliationClass"
+        }
+      ],
+      "title": "AffiliationElement"
+    }
+  }
+}
