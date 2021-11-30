@@ -26,8 +26,16 @@ namespace Project.Pages
             {
                 using (var webClient = new WebClient())
                 {
-                    string jsonString = webClient.DownloadString($"https://api.nobelprize.org/v1/laureate.json?id={id}");
-
+                    string jsonString = "";
+                    try
+                    {
+                        jsonString = webClient.DownloadString($"https://api.nobelprize.org/v1/laureate.json?id={id}");
+                    } 
+                    catch(Exception e)
+                    {
+                        Console.WriteLine("Exception occured: ", e);
+                    }
+                    
                     NobelLaureates = NobelLaureates.FromJson(jsonString);
 
                 }
