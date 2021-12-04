@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json.Schema;
-using QuickTypeNobelLaureates;
+using NobelLaureatesModel;
 
 namespace Project.Pages
 {

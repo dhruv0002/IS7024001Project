@@ -2,8 +2,8 @@
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Extensions.Logging;
-using QuickType;
-using QuickTypeNobelLaureates;
+using CountryModel;
+using NobelLaureatesModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;

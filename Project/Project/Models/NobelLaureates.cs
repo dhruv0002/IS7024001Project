@@ -6,7 +6,7 @@
 //
 //    var nobelLaureates = NobelLaureates.FromJson(jsonString);
 
-namespace QuickTypeNobelLaureates
+namespace NobelLaureatesModel
 {
     using System;
     using System.Collections.Generic;
@@ -114,12 +114,12 @@ namespace QuickTypeNobelLaureates
 
     public partial class NobelLaureates
     {
-        public static NobelLaureates FromJson(string json) => JsonConvert.DeserializeObject<NobelLaureates>(json, QuickTypeNobelLaureates.Converter.Settings);
+        public static NobelLaureates FromJson(string json) => JsonConvert.DeserializeObject<NobelLaureates>(json, NobelLaureatesModel.Converter.Settings);
     }
 
     public static class Serialize
     {
-        public static string ToJson(this NobelLaureates self) => JsonConvert.SerializeObject(self, QuickTypeNobelLaureates.Converter.Settings);
+        public static string ToJson(this NobelLaureates self) => JsonConvert.SerializeObject(self, NobelLaureatesModel.Converter.Settings);
     }
 
     internal static class Converter

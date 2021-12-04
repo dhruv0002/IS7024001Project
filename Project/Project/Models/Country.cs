@@ -6,7 +6,7 @@
 //
 //    var country = Country.FromJson(jsonString);
 
-namespace QuickType
+namespace CountryModel
 {
     using System;
     using System.Collections.Generic;
@@ -26,12 +26,12 @@ namespace QuickType
 
     public partial class Country
     {
-        public static List<Country> FromJson(string json) => JsonConvert.DeserializeObject<List<Country>>(json, QuickType.Converter.Settings);
+        public static List<Country> FromJson(string json) => JsonConvert.DeserializeObject<List<Country>>(json, CountryModel.Converter.Settings);
     }
 
     public static class Serialize
     {
-        public static string ToJson(this List<Country> self) => JsonConvert.SerializeObject(self, QuickType.Converter.Settings);
+        public static string ToJson(this List<Country> self) => JsonConvert.SerializeObject(self, CountryModel.Converter.Settings);
     }
 
     internal static class Converter
