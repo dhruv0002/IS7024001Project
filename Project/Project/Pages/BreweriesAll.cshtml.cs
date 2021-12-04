@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Project.Pages
 {
-    public class BreweriesPageModel : PageModel
+    public class BreweriesAllModel : PageModel
     {
         public List<BreweryCollection> BreweryList { get; set; }
         public IActionResult OnGet()
